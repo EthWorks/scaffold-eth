@@ -67,11 +67,9 @@ function App(props) {
   const gasPrice = useGasPrice(targetNetwork,"fast");
   // Use your injected provider from 🦊 Metamask or if you don't have it then instantly generate a 🔥 burner wallet.
   const userProvider = useUserProvider(injectedProvider, localProvider);
-  const address = useUserAddress(userProvider);
-  const {account, activateBrowserWallet} = useEthers();
+  const {account: address, activateBrowserWallet} = useEthers();
   if(DEBUG) {
-    console.log("👩‍💼 selected address:",address)
-    console.log("👩‍💼 selected address from @usedapp:",account)
+    console.log("👩‍💼 selected address from @usedapp:",address)
   }
 
   // You can warn the user if you would like them to be on a specific network
@@ -91,7 +89,7 @@ function App(props) {
 
   // 🏗 scaffold-eth is full of handy hooks like this one to get your balance:
   const yourLocalBalance = useBalance(localProvider, address);
-  const useDappEtherBalance = useEtherBalance(account)
+  const useDappEtherBalance = useEtherBalance(address)
   if(DEBUG) {
     console.log("💵 yourLocalBalance",yourLocalBalance?formatEther(yourLocalBalance):"...")
     console.log('from usedapp: ', useDappEtherBalance.etherBalance ? formatEther(useDappEtherBalance.etherBalance) : "...")
