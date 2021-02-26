@@ -7,6 +7,7 @@ import { Row, Col, Button, Menu, Alert } from "antd";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { useUserAddress } from "eth-hooks";
+import { useEthers } from "@usedapp/core";
 import { useExchangePrice, useGasPrice, useUserProvider, useContractLoader, useContractReader, useEventListener, useBalance, useExternalContractLoader } from "./hooks";
 import { Header, Account, Faucet, Ramp, Contract, GasGauge } from "./components";
 import { Transactor } from "./helpers";
@@ -67,7 +68,11 @@ function App(props) {
   // Use your injected provider from 🦊 Metamask or if you don't have it then instantly generate a 🔥 burner wallet.
   const userProvider = useUserProvider(injectedProvider, localProvider);
   const address = useUserAddress(userProvider);
-  if(DEBUG) console.log("👩‍💼 selected address:",address)
+  const {account} = useEthers();
+  if(DEBUG) {
+    console.log("👩‍💼 selected address:",address)
+    console.log("👩‍💼 selected address from @usedapp:",account)
+  }
 
   // You can warn the user if you would like them to be on a specific network
   let localChainId = localProvider && localProvider._network && localProvider._network.chainId
