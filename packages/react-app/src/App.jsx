@@ -94,7 +94,7 @@ function App(props) {
   const useDappEtherBalance = useEtherBalance(account)
   if(DEBUG) {
     console.log("💵 yourLocalBalance",yourLocalBalance?formatEther(yourLocalBalance):"...")
-    console.log('from usedapp: ', useDappEtherBalance)
+    console.log('from usedapp: ', useDappEtherBalance.etherBalance ? formatEther(useDappEtherBalance.etherBalance) : "...")
   }
 
   // Just plug in different 🛰 providers to get your balance on different chains:
