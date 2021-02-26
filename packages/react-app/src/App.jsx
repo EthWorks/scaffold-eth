@@ -7,6 +7,7 @@ import { Row, Col, Button, Menu, Alert } from "antd";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { useUserAddress } from "eth-hooks";
+import { useEthers, useEtherBalance } from "@usedapp/core";
 import { useExchangePrice, useGasPrice, useUserProvider, useContractLoader, useContractReader, useEventListener, useBalance, useExternalContractLoader } from "./hooks";
 import { Header, Account, Faucet, Ramp, Contract, GasGauge } from "./components";
 import { Transactor } from "./helpers";
@@ -66,8 +67,10 @@ function App(props) {
   const gasPrice = useGasPrice(targetNetwork,"fast");
   // Use your injected provider from 🦊 Metamask or if you don't have it then instantly generate a 🔥 burner wallet.
   const userProvider = useUserProvider(injectedProvider, localProvider);
-  const address = useUserAddress(userProvider);
-  if(DEBUG) console.log("👩‍💼 selected address:",address)
+  const {account: address, activateBrowserWallet} = useEthers();
+  if(DEBUG) {
+    console.log("👩‍💼 selected address from @usedapp:",address)
+  }
 
   // You can warn the user if you would like them to be on a specific network
   let localChainId = localProvider && localProvider._network && localProvider._network.chainId
@@ -86,7 +89,11 @@ function App(props) {
 
   // 🏗 scaffold-eth is full of handy hooks like this one to get your balance:
   const yourLocalBalance = useBalance(localProvider, address);
-  if(DEBUG) console.log("💵 yourLocalBalance",yourLocalBalance?formatEther(yourLocalBalance):"...")
+  const useDappEtherBalance = useEtherBalance(address)
+  if(DEBUG) {
+    console.log("💵 yourLocalBalance",yourLocalBalance?formatEther(yourLocalBalance):"...")
+    console.log('from usedapp: ', useDappEtherBalance.etherBalance ? formatEther(useDappEtherBalance.etherBalance) : "...")
+  }
 
   // Just plug in different 🛰 providers to get your balance on different chains:
   const yourMainnetBalance = useBalance(mainnetProvider, address);
@@ -150,6 +157,7 @@ function App(props) {
   const loadWeb3Modal = useCallback(async () => {
     const provider = await web3Modal.connect();
     setInjectedProvider(new Web3Provider(provider));
+    activateBrowserWallet()
   }, [setInjectedProvider]);
 
   useEffect(() => {
