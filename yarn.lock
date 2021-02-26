@@ -2943,15 +2943,16 @@
   resolved "https://registry.yarnpkg.com/@uniswap/v2-core/-/v2-core-1.0.1.tgz#af8f508bf183204779938969e2e54043e147d425"
   integrity sha512-MtybtkUPSyysqLY2U210NBDeCHX+ltHt3oADGdjqoThZaFRDKwM6k1Nb3F0A3hk5hwuQvytFWhrWHOEq6nVJ8Q==
 
-"@usedapp/core@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@usedapp/core/-/core-0.1.4.tgz#be3896ee4d7fc014ce586b399155cdd4c2303660"
-  integrity sha512-5SA1knMXDondu7+gsOQvyCNGClQuWEqL5wce96YcTsigVIKt54NC3cNGZKhTwi1W/epYjc6wR9H3H+MKPm8YqA==
+"@usedapp/core@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@usedapp/core/-/core-0.1.5.tgz#36f42a30369969ebb9c7a34288ecb6398cd5e18c"
+  integrity sha512-8XR9za8oBxSvMtJ7rPs9nDk7TOU5CasUqewGczBNLElcQYH7jgO6YJlGUjeHvdBf3utXDZ8BPySopLExzS88mQ==
   dependencies:
     "@ethersproject/providers" "^5.0.17"
     "@types/react" "^17.0.0"
     "@types/react-dom" "^17.0.0"
     "@web3-react/core" "^6.1.1"
+    "@web3-react/injected-connector" "^6.0.7"
     "@web3-react/network-connector" "^6.1.5"
     ethereum-waffle "^3.2.2"
     react "^17.0.1"
@@ -3066,6 +3067,15 @@
     "@web3-react/abstract-connector" "^6.0.7"
     "@web3-react/types" "^6.0.7"
     tiny-invariant "^1.0.6"
+    tiny-warning "^1.0.3"
+
+"@web3-react/injected-connector@^6.0.7":
+  version "6.0.7"
+  resolved "https://registry.yarnpkg.com/@web3-react/injected-connector/-/injected-connector-6.0.7.tgz#1e0be23f51fa07fe6547fe986768a46b74c3a426"
+  integrity sha512-Y7aJSz6pg+MWKtvdyuqyy6LWuH+4Tqtph1LWfiyVms9II9ar/9B/de4R8wh4wjg91wmHkU+D75yP09E/Soh2RA==
+  dependencies:
+    "@web3-react/abstract-connector" "^6.0.7"
+    "@web3-react/types" "^6.0.7"
     tiny-warning "^1.0.3"
 
 "@web3-react/network-connector@^6.1.5":
