@@ -2936,8 +2936,10 @@
   resolved "https://registry.yarnpkg.com/@uniswap/v2-core/-/v2-core-1.0.1.tgz#af8f508bf183204779938969e2e54043e147d425"
   integrity sha512-MtybtkUPSyysqLY2U210NBDeCHX+ltHt3oADGdjqoThZaFRDKwM6k1Nb3F0A3hk5hwuQvytFWhrWHOEq6nVJ8Q==
 
-"@usedapp/core@file:packages/react-app/.yalc/@usedapp/core":
-  version "0.1.5"
+"@usedapp/core@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@usedapp/core/-/core-0.1.6.tgz#bc5b4ee84927dac195bcf82949ec97b0f9828505"
+  integrity sha512-CsUxuEyNFKz1URNK6368F4n1gfVUYy9SuBspZsbeSI8EzbiyBJ9xSiu5dedT7f172kvblku+FQgu5xzVUv/PHQ==
   dependencies:
     "@ethersproject/providers" "^5.0.17"
     "@types/react" "^17.0.0"
